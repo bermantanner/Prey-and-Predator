@@ -2,17 +2,24 @@
 
 ## Project Overview
 
-This repository contains the initial rough draft of my "Prey-and-Predator" simulation. This project, originally developed as part of my earlier work, aims to simulate the dynamic interactions between predators "Birds" and their prey "Worms" in a 2D grid. The Organism class serves as a common base class from which Birds and Worms are derived, inheriting its properties. The simulation includes mechanics for moving, hunting, breeding and starvation.
+This repository contains my "Prey and Predator" simulation project. This originally developed as part of my early school work. It is an older project that I am revisiting with fresh eyes and new skills as a side project over the summer. I aim to continue to refactor this project from it's rough early stages and implement it into an easy to access website.
 
-## Current Status: Rough Draft
+This project simulates dynamic interactions between predators "Birds" and their prey "Worms" in a 2D grid. The Organism class serves as a common base class from which Birds and Worms are derived, inheriting its properties. The simulation includes mechanics for moving, hunting, breeding, and starvation.
 
-The current version of the codebase is a **rough draft**. It is an older project that I am revisiting with fresh eyes and new skills. As such, the code and documentation reflect an early stage of development and are subject to significant changes. In this version, worms breed every three timesteps, birds breed every eight. If a bird goes three timesteps without eating a worm, it will starve. Birds will look at adjacent grid spaces for worms to eat. 
+## Changelog from Rough Draft
+Here are my improvements so far since revisiting this project:
+
+- **General Refactoring**: Significantly refactored the existing code for better efficiency and maintainability
+- **findValidMove() Function**: Created a general findValidMove() function to eliminate duplicate code across classes. Optimized the logic by reordering checks to prevent unnecessary iterations.
+- **Bad Practices**: Changed public data attributes like character and hasMoved to private and created appropriate getters and setters.
+- **Code Organization**: Rearranged the order of functions to improve readability.
+- **Comments**: Created more consistent and concise comments.
 
 ## Objectives for Revival
 
 As I work to revive this project, this is what I plan to do (may continue to add to this):
 
-- **Refactoring and Optimization**: Enhance the codebase for improved performance and easier maintainability...Removing public data variables and other bad practices. Additionally, split the code into multiple files.
+- **Refactoring and Optimization**: Continue enhancing the codebase for improved performance and easier maintainability. Split the code into multiple files. Make sure that every parameter intended for user control are configurable through user input, not hard-coded.
 - **Implementation onto website**: Learn about Emscripten and WebAssembly, attempt to implement the C++ logic onto a webpage. Learn the basics of Javascript, HTML, and CSS to build this simple website. Implement interactive controls allowing users to configure various simulation parameters directly through the web interface.
 
 ## Running
@@ -27,7 +34,7 @@ git clone https://github.com/bermantanner/Prey-and-Predator.git
 cd Prey-and-Predator
 
 # Compile the project (specific commands depend on your environment)
-gcc -o simulation main.c
+gcc -o simulation preyandpredator.c
 
 # Run the simulation
 ./simulation
