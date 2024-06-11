@@ -34,7 +34,7 @@ git clone https://github.com/bermantanner/Prey-and-Predator.git
 cd Prey-and-Predator
 
 # Compile the project (specific commands depend on your environment)
-gcc -o simulation preyandpredator.c
+gcc -o simulation main.cpp Organism.cpp Bird.cpp Worm.cpp Simulation.cpp -I.
 
 # Run the simulation
 ./simulation
