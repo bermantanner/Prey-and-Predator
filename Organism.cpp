@@ -1,6 +1,4 @@
 #include "Organism.h"
-#include <vector>
-#include <random>
 
 using namespace std;
 
