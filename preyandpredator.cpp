@@ -1,3 +1,5 @@
+#include "SFML/Graphics.hpp"
+
 #include <iostream>
 #include <vector>
 #include <ctime>
@@ -14,17 +16,39 @@ using namespace std;
 
 int main()
 {
-    Simulation sim;
-    sim.generateGrid();
-    sim.populateGrid();
-    int steps = 0;
+    int gridSize;
+    int tickSpeed;
+    cout << "Enter size of grid (n x n): " << endl;
+    cin >> gridSize;
+    cout << "Enter tick speed (100 is faster, 500 is slower):" << endl;
+    cin >> tickSpeed;
+    const int windowSize = 1000;
+   
+    // create the SFML window
+    sf::RenderWindow window(sf::VideoMode(windowSize, windowSize), "Prey and Predator");
 
-    while (steps < 100) {
-        sim.displayGrid();
-        sim.displayStats();
-        sim.timeStep();
-        steps++;
-        this_thread::sleep_for(chrono::milliseconds(600));
+    // initialize the simulation
+    Simulation sim(gridSize, &window, windowSize);
+
+     // clock for controlling tick speed
+    sf::Clock clock;
+
+    // main loop
+    while (window.isOpen()) {
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        // call timeStep at regular intervals
+        if (clock.getElapsedTime().asMilliseconds() > tickSpeed) {
+            sim.timeStep();
+            clock.restart();
+        }
+
+        // Render the grid
+        sim.render();
     }
 
     return 0;
