@@ -9,6 +9,12 @@ This was super fun to make!!
 ## Demonstration 
 Dark Blue squares are the PREDATORS ("Birds"), Teal squares are the PREY ("Worms"), White squares are empty.
 
+
+
+https://github.com/user-attachments/assets/c2792dd9-4b1e-4dbd-8eeb-d937720ec42b
+
+
+
 https://github.com/user-attachments/assets/e8e96309-8805-497f-94f8-73772beafb53
 
 Full Video:
